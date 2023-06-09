@@ -1,0 +1,25 @@
+.App{
+    text-align: center;
+    font-family: rust;
+  }
+  .img{
+    background-image: url(./background.jpg);
+    background-size: cover;
+    height: 100vh;
+  }
+  .App-header{
+    font-size: 50px;
+  }
+  form{
+    height: 80vh;
+  }
+  .row{
+    height: 15vh;
+  }
+  button{
+    border-radius: 15px;
+    background-color:violet;
+    font-family: monospace;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
