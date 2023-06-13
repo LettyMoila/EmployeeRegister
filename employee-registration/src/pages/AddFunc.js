@@ -2,8 +2,8 @@ import React from "react";
 import "./AddFunc.css";
 import { Link } from "react-router-dom";
 
-import data from '../data/data.json'
-import {useState} from "react"
+import data from '../data/data.json';
+import {useState} from 'react';
 
 const AddFunc = () => {
 
@@ -20,8 +20,8 @@ const AddFunc = () => {
   const [identity, setID] = useState("")
 
 
-  const add = (()=>{
-
+  const add = (e)=>{
+      e.preventDefault();
       const newemployee = {
         name: fullname,
         emailAddress: email,
@@ -30,29 +30,28 @@ const AddFunc = () => {
         identity: identity
       }
       setEmployees([...employees, newemployee],)
-    })
-
+    }
+ 
 	return (
         <div className="App">
-            
-          {employees.map((employee)=>(
-            <div> 
-              <h1> {employee.fullname} </h1>
-              <h1> {employee.email} </h1>
-              <h1> {employee.phone} </h1>
-              <h1> {employee.role} </h1>
-              <h1> {employee.identity} </h1>
-              
-              </div>
-    
-    
-          ))}
       
         <div className='img'>
           <header className="App-header">
             <h1 >Employee Register</h1>
           </header>
-  
+          
+          {employees.map((employee)=>(
+          <div className="results"> 
+            <h1> {employee.name} </h1>
+            <h1> {employee.emailAddress} </h1>
+            <h1> {employee.phone} </h1>
+            <h1> {employee.role} </h1>
+            <h1> {employee.identity} </h1>
+            
+          </div>
+
+
+     ))}
           <form id="EmployeeForm">
               <div className='row'>
                 <div className='col_1'>
@@ -110,35 +109,3 @@ const AddFunc = () => {
 };
 
 export default AddFunc;
-
-/*
-function App() {
-
-  return (
-
-            <div> 
-
-              <h1> KABELO </h1>
-              
-              {employees.map((employee)=>(
-              <div> 
-                <h1> {employee.name} </h1>
-                <h1> {employee.surname} </h1>
-                
-            </div>)
-          
-          )}
-
-
-     <input type="text"  placeholder="Enter name"  onChange= {(event)=> setName(event.target.value)} />
-     <input type="text"  placeholder="Enter surname"  onChange= {(event)=> setSurname(event.target.value)} />
-
-     <button  onClick= {add}> add  </button>
-       </div>
-  )
-}
-
-ReactDOM.render(<App />, document.getElementById('root'))
-
-  )
-} */
